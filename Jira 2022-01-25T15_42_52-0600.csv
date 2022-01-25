@@ -1,0 +1,709 @@
+Custom field (Actual Effort),Assignee,Custom field (Chapter),Component/s,Component/s,Component/s,Custom field (Confidence Level),Custom field (Deployment Date),Description,Due Date,Custom field (Environment),Custom field (Environment(s)),Custom field (Epic Link),Custom field (Epic Name),Custom field (Epic Status),Custom field (Estimation),Custom field (Feature Points),Custom field (Is there a workaround?),Issue Type,Labels,Labels,Labels,Custom field (Lead),Inward issue link (Depends),Outward issue link (Depends),Inward issue link (Duplicate),Inward issue link (Relates),Custom field (Next Supply Quantity),Custom field (Objective),Original Estimate,Custom field (Owner),Custom field (Parent Link),Custom field (Planned Effort),Custom field (Planned End Date),Custom field (Planned Start Date),Priority,Project key,Project name,Project type,Project lead,Project description,Project url,Remaining Estimate,Reporter,Custom field (Requirement Critical),Custom field (Requirement Design and Configuration Doc Link),Custom field (Requirement No.),Custom field (Requirement SOP Doc Link),Custom field (Requirement Category),Security Level,Custom field (Short Name),Sprint,Sprint,Sprint,Sprint,Custom field (Start Date),Custom field (Story Points),Summary,Custom field (Target end),Custom field (Target start),Custom field (Tech & UX Notes),Custom field (WSJF),Custom field (Watchers),Custom field (Watchers),Custom field (Watchers),Custom field (Why are we doing it?),Custom field (Work Complete (Current Sprint)),Custom field (Work Complete (Total)),Custom field (syncProxyAssociation),Resolution,Custom field (Resolution),Custom field (Resolution)
+,,,,,,,,"https://merck-preprod.go-vip.co/merck/research-and-products/products-list
+ 
+h2. What is the issue?
+h3. Actual result
+
+The screen reader announces the ""Submit"" button as ""unlabelled"". This could potentially confuse the user because they are not aware of the action that is going to be performed.
+h3. Expected result
+
+The screen reader announces the action that is going to be performed when the button is triggered.
+h3. Steps to reproduce
+
+1. Go to the URL. 2. Navigate through the website until reaching the ""Submit"" button. 3. Notice that the screen reader does not announce the button's purpose.
+h2. How to resolve the issue
+h3. Recommendation
+
+Use an aria-label or aria-labelledby attribute to provide a proper label for the <button>. Refer to: https://developers.google.com/web/fundamentals/accessibility/semantics-aria/aria-labels-and-relationships
+h3. Screenshots and attachments
+ 
+https://www.screencast.com/t/B3rEFFCrMv",,,,GBLDEV-710,,,,,,Story,Accessibility,Severity_High,Vertex,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,MWPC–270 – Unlabelled button (products. list),,,,,spekathe,,,,,,,,,
+,,,,,,,,"https://merck-preprod.go-vip.co/merck/research-and-products/product-pipeline/
+ 
+h2. What is the issue?
+h3. Actual result
+
+The screen reader does not notify about the information updated in the above graph on selecting these elements. This might confuse the user or lead to a waste of time.
+h3. Expected result
+
+The screen reader notify about the information updated in the above graph on selecting these elements to the screen reader user without interrupting the reading flow.
+h3. Steps to reproduce
+
+1. Go to the URL. 2. Navigate through the website until reaching the elements present in ""Therapeutic Key Areas"" section such as : View all, Cardiovascular disease,...Women's health. 3. Notice that the screen reader does not notify about the information updated in the above graph on selecting these elements.
+h2. How to resolve the issue
+h3. Recommendation
+
+Provide a visually hidden <div> with aria-live=""polite"" and put the sufficient information text into visually hidden <div> to make an announcement. Refer to: https://a11yproject.com/posts/how-to-hide-content/ https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions
+h3. Screenshots and attachments
+
+[https://www.screencast.com/t/eqDAmlkJWHO]
+
+[https://www.screencast.com/t/QTCPoG4lVQ4]
+
+[https://www.screencast.com/t/8jvhIZYlusz]
+
+[https://www.screencast.com/t/jrWBJYBmY]
+
+[https://www.screencast.com/t/DVpSxZw8u]
+
+[https://www.screencast.com/t/yEhcDpstK]
+
+ ",,,,GBLDEV-710,,,,,,Story,Accessibility,Severity_High,Vertex,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,MWPC–269 – Notification not announced (pipeline),,,,,spekathe,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-710,,,,,,Story,Accessibility,Severity_High,Vertex,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,"https://merck-preprod.go-vip.co/merck/research-and-products/product-pipeline/
+ 
+h2. What is the issue?
+h3. Actual result
+
+The screen reader announces incorrect role ""link "" for the ""Phase 2 57 programs, Phase 3 24 programs & Under Review 3 programs"" tab. Similarly for elements present in ""Therapeutic Key Areas"" section such as : View all Cardiovascular disease Diabetes and endocrinology Infectious disease Neurosciences Oncology Respiratory and immunology Vaccines Women's health
+h3. Expected result
+
+The screen reader announces them as ""Tabs"" & should notify the selected state on selecting the button.
+h3. Steps to reproduce
+
+1. Go to the URL. 2. Navigate through the website until reaching the element present in ""Our pipeline at a glance "" section such as Phase 2 57 programs, Phase 3 24 programs & Under Review 3 programs & etc.
+h2. How to resolve the issue
+h3. Recommendation
+
+1. Add role=""tablist"" and aria-label attribute to the tabs container. 2. The tabs should be a <button> tag or have role=""button"" and type=""button"" properties. 3. Each tab must have the following properties: role=""tab"" aria-selected=""true/false"". The first tab should have this value set to ""true"". aria-controls=""ID_TABPANEL"" id=""ID_TAB"" 4. While having the aria-selected attribute set to none, the button must have an tabindex attribute set to ""-1"" 5. For the tabpanel use the following attributes: tabindex=""0"" role=""tabpanel"" id=""ID_TABPANEL"" aria-labelledby=""ID_TAB"" 6. Use JS to add LEFT and RIGHT arrow keys interaction to navigate through the tabs Refer to: https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-2/tabs.html
+h3. Screenshots and attachments
+[https://www.screencast.com/t/qUSRnzKfLb] ",,,,,,,,,,,,MWPC–268 – Incorrect role for control defined (product pipeline),,,,,spekathe,,,,,,,,,
+,,,,,,,,"https://merck-preprod.go-vip.co/merck/stories/
+ 
+h2. What is the issue?
+h3. Actual result
+
+The user reaches ""2"" links with the same destination URL when navigating using the screen reader. This could potentially confuse the user since all those links will lead to the same page.
+h3. Expected result
+
+The user reaches only one relevant link per URL within the same section.
+h3. Steps to reproduce
+
+1. Go to the URL. 2. Navigate using TAB key with the screen reader until reaching the link present under ""We have always been and always will be inventing for the single greatest purpose: Life"". 3. Press TAB key again and notice the same link is being announced by the screen reader.
+h2. How to resolve the issue
+h3. Recommendation
+
+1. Group all the elements within the same <a> tag. 2. (If needed) try using <span> tags instead of <div> or <p> tags to avoid the screen reader announcing the same link several times. 3. (Only if there is an image serving also as link) Mark the <img> element with alt-text="""". Refer to: https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/H2
+h3. Screenshots and attachments
+
+[https://www.screencast.com/t/KIoGXoQr3SZS]
+
+[https://www.screencast.com/t/nWjQfvpMmh]
+
+[https://www.screencast.com/t/pxhapI2qf]
+
+[https://www.screencast.com/t/mri82UmJFv9m] ",,,,GBLDEV-710,,,,,,Story,Accessibility,Severity_Low,Vertex,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,MWPC–266 – Redundant links (content strategy/tagging),,,,,spekathe,,,,,,,,,
+,,,,,,,,"h2. What is the issue?
+h3. Actual result
+
+The focus does not reach to the ""Next and Previous"" slider button, ""Play/Pause"" button and to the image link present beside it. This is important for users with motor impairments who navigate through the page using keyboard only.
+h3. Expected result
+
+Focus reaches the ""Next and Previous"" slider button, ""Play/Pause"" button and to the image link present beside it.
+h3. Steps to reproduce
+
+1. Go to the URL. 2. Navigate through the page using the keyboard until you reach the ""Main section"". 3. Notice that focus does not reach the ""Next and Previous"" slider button, ""Play/Pause"" button and to the image link present beside it.
+h2. How to resolve the issue
+h3. Recommendation
+
+Use the proper <button> tag. OR Use a tabindex=""0"" attribute to make the item focusable. For Button: Add a role=""button"". Also, make sure the element can be triggered when using the SPACE bar or ENTER key. Refer to: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
+h3. Screenshots and attachments
+[https://www.screencast.com/t/ieZg1dXUU] ",,,,GBLDEV-710,,,,,,Story,Accessibility,Severity_Critical,Vertex,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,MWPC–216 – Element not triggerable through keyboard (carousel navigation) ,,,,,spekathe,,,,,,,,,
+,,,,,,,,"https://merck-preprod.go-vip.co/merck/company-overview/leadership/board-of-directors/
+ 
+h2. What is the issue?
+h3. Actual result
+
+The list of elements are announced just as text by the screen reader. This might confuse the user and it implies an extra effort for them to understand when they enter/leave the list and how many items it contains.
+h3. Expected result
+
+The screen reader announces them in the form of list.
+h3. Steps to reproduce
+
+1. Go to the URL. 2. Navigate through the website until reaching the list of elements present in ""Corporate governance documents "" section. 3. Notice that the screen reader is announcing the elements just as text.
+h2. How to resolve the issue
+h3. Recommendation
+
+Instead of using <div> for the list item use <ol>, <li> for ordered list and <ul>, <li> for unordered list. Ensure that the direct parent of all <li> should be <ul> or <ol>. And <ul> or <ol> should contain only <li> or allowed elements to make it semantically correct. Refer to: https://www.w3.org/WAI/tutorials/page-structure/content/#unordered-list https://www.w3.org/TR/WCAG20-TECHS/H48.html[https://www.w3.org/TR/wai-aria-1.1/#list]
+
+*Screenshots*
+
+[https://www.screencast.com/t/y9ptchbLACbr] 
+
+[https://www.screencast.com/t/CvZhbj7kk5bB] 
+
+[https://www.screencast.com/t/d6Px5G3sWNl]
+
+[https://www.screencast.com/t/JAK3L1gHt]
+
+[https://www.screencast.com/t/dfiKwoZEY] 
+
+[https://www.screencast.com/t/zxcHqEcU9f10] 
+
+[https://www.screencast.com/t/ICDreVMrZhrm] 
+
+[https://www.screencast.com/t/cUNBnQ79dtH9] 
+
+[https://www.screencast.com/t/dsr0uhTWT]
+
+[https://www.screencast.com/t/TWihhtzfkhte]
+
+[https://www.screencast.com/t/rWGLyq9XS]
+
+[https://www.screencast.com/t/JJf7Ih49YpGc]
+
+[https://www.screencast.com/t/9aUeM1T2B] ",,,,GBLDEV-710,,,,,,Story,Accessibility,Severity_High,Vertex,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,MWPC–267 – List not implemented (syntax for links) ,,,,,spekathe,,,,,,,,,
+,,,,,,,,"Epic to organize tasks and user stories found in manual testing of corporate theme. Any updates shouild also be analyzed to ensure they apply to the corporate country sites, MCO theme (merck and msd.com). ",,,,,User stories/tasks resulting from Essential Accessibility manual testing audit of Corporate theme,To Do,,,,Epic,Accessibility,Vertex,,,,,,GBLDEV-602,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,User stories/tasks resulting from Essential Accessibility manual testing audit of Corporate theme,,,,,spekathe,,,,,,,,,
+,mooreem,,,,,,,"Scope the effort to bring the Hero 13 block over from Universal theme to Vivid 360. There is an unbranded site set to launch around Q2 of 2022 that wants to use it.
+
+Block example: [https://pre.mhh-global.wpcust.com/mh-demo/heros/hero-13/]",30/Nov/21 12:00 AM,,,,,,,,,Task,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,davdarro,,,,,,,,,,,,,,Scope effort to bring Hero 13 Block over from Universal to VIVID360,,,,,davdarro,,,,,,,,,
+,mooreem,,,,,,,"Hey  [~mooreem] 
+
+We need to update the launch process for new sites to make sure that we record the launched sites on Confluence. Can you please update your process to include this step?
+
+We created a central spreadsheet in Teams to gather the URL, general theme (Corporate or Vivid), and key site contacts.  
+
+ 
+
+[https://collaboration.merck.com/:x:/r/sites/wp-developmentland/Shared%20Documents/General/Launches/wordpress-vip-sites.xlsx?d=w55399b86867b49069782d1d5012e1f28&csf=1&web=1] 
+
+Can you also please review the list for the sites you manage and add any recently launched ones? I've been updating this list manually and haven't gotten the latest corporate ones on there. 
+
+Thank you!!! 
+
+CC [~aakula] [~whartoky]",,,,GBLDEV-582,,,,,,Task,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,Vertex - update launch process to document new sites,,,,,spekathe,whartoky,,,,,,Done,,
+,mooreem,,,,,,,"Hey Vertex -
+
+Can you please decommission https://msd.unleashinggrowthpotential.com/ and https://merck.unleashinggrowthpotential.com/? Mike Miller confirmed that we don't need redirects in place. 
+
+Thanks!
+
+Kate
+
+Also, [~yoch] and [~Linaults] - once we ditch these sites do we need to contact Ben Anderson to let him know to decommission the domain?",,,,,,,,,,Task,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,Decommission unleashinggrowthpotential.com sites,,,,,spekathe,yoch,,,,,,,,
+,mooreem,,,,,,,"_Screen recording attached._
+
+The menu to change a text block from a Heading to a Paragraph or visa versa closes before a selection can be made.",,,,GBLDEV-176,,,,,,Bug,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,davdarro,,,,,,,,,,,,,,"WP Block Editor | Menu to change block disappears before selection can be made",,,,,davdarro,,,,,,,,,
+,jackje,,,,,,,"Hey [~jackje] - 
+
+Can you please help scope adding the Inpsyde Tealium, GTM, and Taxonomy plugin to the environments you control? The data/analytics team wants the flexibility so they can switch over more sites to GTM from Tealium (particularly for new sites). They also want everything standardized. Can we support that for new sites? Then we'll need separate discovery on transitioning existing sites to the new plugins. 
+
+I know that a lot of the corporate sites have been released to markets, so not sure where we can fit this into the process. We'll definitely want to get the new plugins part of the process for Vivid 360 sites prior to migration. 
+
+Can you please help assess this level of effort?
+
+Thank you!!!!
+
+CC [~mooreem]",,,,GBLDEV-431,,,,,,Task,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,Scope adding new analytics plugins to Vertex-managed environments ,,,,,spekathe,,,,,,,,,
+,jackje,,,,,,,"Hey [~jackje] and [~mooreem],
+
+We need to standardize our Brightcove implementation on the Inpsyde Brightcove plugin.
+
+Per our previous discussions it doesn't sound like there are many videos on the corporate site that use Brightcove currently (possibly outside some of the corporate country sites).
+
+Next steps:
+* Audit corporate sites for Brightcove videos
+* Add Inpsyde Brightcove Plugin to Corporate repos (merck/merck2)
+* Update Corporateberg Video block
+* Adjust styling to align with Corporate Design System (if necessary)
+* Vivid360 - Use Inpsyde Brightcove plugin instead of developing Vivid360 Brightcove module (see [this ticket|https://issues.merck.com/browse/GBLDEV-275]).
+
+Please let us know if you have any questions. 
+
+cc: [~Linaults], [~spekathe], [~sharami9]",,,,,Standardize on Inpsyde Brightcove Plugin,To Do,,,,Epic,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Standardize on Inpsyde Brightcove Plugin,,,,,jackje,vulina,yoch,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,"Pills (possibility of deferral to next version, reference Payor style)",,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Quiz Functionality,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,HCP Formulary Finder,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Add option to hide page title from individual pages.,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Ability to toggle breadcrumbs on/off from individual pages,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,PDF Functionality (to support McKesson Integration),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Consumer Coupon Design Flow (to support McKesson Integration),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,McKesson Integration (for Vouchers/Coupons),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Consumer unbranded template,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Consumer branded template,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Updates to existing Content Module (variations for HCP Sites),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Add deep linking/HTML anchors to relevant blocks,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Add contrast checker to relevant blocks,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Carousel,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Updates to existing Accordion,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Updates to existing 100vh Hero Module,,,,,mooreem,,,,,,,Duplicate,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Remove 50vh Hero Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,"Identification of shared functionality; move to central location.",,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Restructure codebase to work with new code versioning and deployment repo architecture.,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Fork existing codebases and merge into single codebase.,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Discovery for HCP Formulary Finder,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Discovery for Quiz Functionality,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Discovery for McKesson Coupon/Voucher capability,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Discovery for Analytics & Reporting integrations,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Modals & Overlays,,,,,mooreem,,,,,,,,,
+,jackje,,,,,,,"Hey [~jackje] and [~mooreem],
+
+We need to update the jquery version on msd.com - specifically the [worldwide location page|https://www.msd.com/contact-us/worldwide-locations/].
+
+Additional details on the vulnerability here: https://snyk.io/test/npm/jquery/2.2.4. 
+
+It looks like the remediation is to upgrade to 3.5.0. [~Linaults] - not sure if you have any details on the versions you use on Tridion.
+
+I put a due date for end of next week. Let us know if that works or if you have any questions.
+
+Thanks!
+
+cc: [~spekathe], [~sharami9]",23/Jul/21 12:00 AM,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Critical,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Update Jquery on MSD.com Location Page,,,,,jackje,Linaults,yoch,,,,,,,
+,mooreem,,,,,,,"Hi Emily and Pierce,
+
+I’m putting together some case studies of solutions to common problems when migrating an existing site over to one of our WordPress themes (screenshot example attached). Do you have a few examples that you can think of that you ran into when migration sites to the Corporate theme? Anything you can share would be a big help. Thank you!",,,,,,,,,,Task,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,davdarro,,,,,,,,,,,,,,Content Migration Case Studies,,,,,davdarro,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,"Move OneTrust script insertion higher in <head>, if possible.",,,,,mooreem,yoch,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Troubleshoot content sync issues with some Customizer fields in Vivid.,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,"Products [MV.com, MC.com, Payor Portal]",,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,"Tools & Resources [MV.com, MC.com, Payor Portal]",,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,HCP Portal Homepage Template,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,HCP Portal Product Page - Interior Page Template,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,"HCP Portal Product Page - ""Homepage"" Template",,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Product Page Template (Consumer),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Coupon Form Template,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,VIVID360 Grid System,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Type Stack,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Icon Library,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Form Elements,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Pharmacy Locator: Full page,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Branded Consumer Navigation,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Unbranded Consumer Navigation,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Additional button styles in UI Kit (reference Payer variations),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Content Status Labels (reference Payor style),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Accordions to UI Kit (reference Payor style),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Table of Contents to UI Kit (reference Payor style),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Pagination to UI Kit (reference Payor style),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Chatbot components in Sketch UI Kit (current and V360),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Footer: Consumer Merck Standard ,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Footer: Consumer Branded,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,FAQs for V360,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Continue setting up new environments in new repo architecture,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Review new repos and make updates and fixes,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Add Tealium tracking to contentcapabilities.com,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Vaccines new homepage design. Dependent on new components in Vivid360.|",,,,,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Vaccines new homepage design,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Indication/ISI updates rollout,,,,,davdarro,mooreem,,,,,,,,
+,,,,,,,,,,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Adding NewRelic performance monitoring to MerckVaccines.com,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Vaccines performance improvement updates,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Review Vaccines pages with unused CSS and identify changes that can be made|",,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Remove unused CSS from merckvaccines.com,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Chatbot. Dependent on extension of Inpsyde’s global plugin and Vertex’s integration within Vivid360|",,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Merck Vaccines chatbot,,,,,mooreem,,,,,,,,,
+,,,,,,,,Gardasil9 Migration to freeze appearance so as not to disrupt current review process cycle,,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Gardasil 9 Subsite,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Fix external link modal issues for Pregnyl site,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Add OneTrust to contentcapabilities.com,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Pharmacy Locator: Multi-page component,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Cards for HCC & HCP Sites,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Video Player Component ,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,HCP Notifications,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,HCP Slim Brand Navigation,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Progress Indicator (Payor style),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,HCP Slim Brand Notifications,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Vivid360 Dashboard (Usage statistics),,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Add Revision Workflow global plugin to Vaccines environment for testing,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Add Tealium tracking global plugin to Vaccines environment for testing,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Select a variation to start with: 100, 50/50, 30/70, 70/30, 33/33/33, 25/50/25
+ Color Settings: Text color, Background color
+ Advanced: HTML anchor, Additional CSS class(es)|Image Border: Border radius, Weight, Color settings|",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Columns Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Color Settings: Text color, Background color
+ Advanced: HTML anchor, Additional CSS class(es)|Image Border: Border radius, Weight, Color settings|",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Group Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Styles: Default, Wide Line, Dots
+ Color Settings: Select from a range of colors
+ Advanced: HTML anchor, Additional CSS class(es)|Line weight, Pattern Image Upload|",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Separator Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Spacer Settings: Height in pixels
+ Advanced: HTML anchor, Additional CSS class(es)|",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Spacer Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Styles: Default, Rounded
+ Basic editing toolbar: Alignment, Add Link, Crop, Add text over image
+ Advanced Settings: HTML anchor, Additional CSS class(es)|Border: Border radius, Weight, Color settings|",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Image Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Advanced Settings: HTML anchor, Additional CSS class(es)|",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Brightcove Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Typography: Font size, Style, Alignment, Link
+ Color settings
+ Formatting: Superscript, Subscript, Underline
+ Advanced Settings: HTML anchor, Additional CSS class(es)|Background options for headers with unique styling, for example, Delstrigo has a special background for certain headings: https://www.delstrigo.com/
+ 
+ Not sure if including an option to upload a background image makes sense, or if we should build a header background specifically for this scenario.|",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Heading Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|List type: Bullets, Numbered
+ Indentation setting
+ Typography: Font size, Style, Alignment, Link
+ Color settings
+ Formatting: Superscript, Subscript, Underline
+ Advanced Settings: HTML anchor, Additional CSS class(es)|Numbered list resets number if list item is indented, can we second level items alphabetical?|",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,List Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"Text Settings: Drop cap toggle, Formatting (Superscript, Subscript, Underline), Font Weight, Add Link, Font size
+Advanced Settings: HTML anchor, Additional CSS class(es)",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Paragraph Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"Text Settings: Formatting (Superscript, Subscript, Underline), Font Weight, Add Link, Font size
+Advanced Settings: HTML anchor, Additional CSS class(es)",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Preformatted Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,Add iconography option,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Quote Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"Border options: Border radius, Border weight
+Color settings: Border, Header, Cell Backgrounds",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,, ,,,,,,,,,,,,Table Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"Button settings: Border options (weight, color), Background color, Add iconography option, Border radius
+Content Background: Option to add background image for brands that use minor decorative accents or gradients in backgrounds",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,"|Styles: No Link, Text Link, Button, Legal, Column Offset
+ Link Settings: URL, Open Link in New Tab, Link Rel
+ Formatting: Superscript, Subscript, Underline
+ Advanced: Additional CSS class(es)|Image Border: Border radius, Weight, Color settings|",,,,,,,,,,,,100vh Hero Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,Accordion style settings: Border weight and color settings,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,"|Styles: No Link, Text Link, Button, Legal, Column Offset
+ Link Settings: URL, Open Link in New Tab, Link Rel
+ Formatting: Superscript, Subscript, Underline
+ Advanced: Additional CSS class(es)|Image Border: Border radius, Weight, Color settings|",,,,,,,,,,,,Accordion,,,,,mooreem,,,,,,,,,
+,,,,,,,,https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckql080955qbg018kdg451jwb/play,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,"|Styles: No Link, Text Link, Button, Legal, Column Offset
+ Link Settings: URL, Open Link in New Tab, Link Rel
+ Formatting: Superscript, Subscript, Underline
+ Advanced: Additional CSS class(es)|Image Border: Border radius, Weight, Color settings|",,,,,,,,,,,,Buttons,,,,,mooreem,,,,,,,,,
+,,,,,,,,"|Styles: Stacked Card w/ Icon, Left Card w/o Header Icon or Image, Left Card w/ Header & w/o Icon or Image, Left Card w/ Header & Image, Left Card w/ Icon, Simple Card w/ Icon, Simple Card w/ Image, Stacked card w/ Image, Simple Card w/ Video, Stacked Card w/ Video
+ Make Entire Card Link Toggle
+ Icon
+ Image
+ Video Settings: Video Hosting (Wordpress, Youtube, Brightcove)
+ Link Settings: URL, Open Link in New Tab, Link Rel
+ Formatting: Superscript, Subscript, Underlin
+ Advanced: Additional CSS class(es)|Image Border: Border radius, Weight, Color settings
+ Download attachment option|",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,"|Styles: No Link, Text Link, Button, Legal, Column Offset
+ Link Settings: URL, Open Link in New Tab, Link Rel
+ Formatting: Superscript, Subscript, Underline
+ Advanced: Additional CSS class(es)|Image Border: Border radius, Weight, Color settings|",,,,,,,,,,,,Card Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,"|Styles: No Link, Text Link, Button, Legal, Column Offset
+ Link Settings: URL, Open Link in New Tab, Link Rel
+ Formatting: Superscript, Subscript, Underline
+ Advanced: Additional CSS class(es)|Image Border: Border radius, Weight, Color settings|",,,,,,,,,,,,Content Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckql080955qbg018kdg451jwb/play,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Content Switcher,,,,,mooreem,,,,,,,,,
+,,,,,,,,"Fixed height: UI Kit has a fixed height of 450px
+Button settings: Border options (weight, color), Background color, Add iconography option, Border radius
+Content Background: Option to add background image for brands that use minor decorative accents or gradients in backgrounds",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Hero Banner,,,,,mooreem,,,,,,,,,
+,,,,,,,,"Button settings: Border options (weight, color), Background color, Add iconography option, Border radius
+Content Background: Option to add background image for brands that use minor decorative accents or gradients in backgrounds",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Image Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"Button settings: Border options (weight, color), Background color, Add iconography option, Border radius
+Content Background: Option to add background image for brands that use minor decorative accents or gradients in backgrounds",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Modal Block,,,,,mooreem,,,,,,,,,
+,,,,,,,,"Width settings, Options to add a button",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Row Block,,,,,mooreem,,,,,,,,,
+,,,,,,,,https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckql080955qbg018kdg451jwb/play,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Tabs Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,"Due to accessibility concerns, remove ability to add copy on top of video.
+
+Remove option to use Youtube and WordPress under Video Host settings.
+
+ ",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Video Module,,,,,mooreem,,,,,,,,,
+,,,,,,,,Add custom HTML code and preview it as you edit,,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Custom HTML,,,,,mooreem,,,,,,,,,
+,,,,,,,," Remove the following blocks from VIVID360
+|More DISABLE|
+|Page Break DISABLE|
+|Audio DISABLED|
+|Cover DISABLED|
+|File DISABLE|
+|Gallery DISABLE|
+|Image Compare DISABLE|
+|Media & Text DISABLE|
+|Tiled Gallery DISABLE|
+|Video DISABLE|
+|Classic DISABLE|
+|Classic Paragraph DISABLE|
+|Code DISABLE|
+|Markdown DISABLE|
+|Pullquote DISABLE|
+|Verse DISABLE|
+|50vh Hero Module DISABLE|
+|Archives DISABLE|
+|Calendar DISABLE|
+|Categories DISABLE|
+|Latest Comments DISABLE|
+|Latest Posts DISABLE|
+|Related Posts (ElasticPress) DISABLE|
+|RSS DISABLE|
+|Search DISABLE|
+|Shortcode DISABLE|
+|Social Icons DISABLE|
+|Star Rating DISABLED|
+|Tag Cloud DISABLED|",,,,GBLDEV-176,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,mooreem,,,,,,,,,,,,,,Disable deprecated VIVID Components,,,,,mooreem,,,,,,,,,
+,vulina,,,,,,,"Due to the drastic changes we will be undergoing for the Vivid codebase, we have decided to create a new repo for the Vivid360 design system in order to mitigate issues of backwards compatibility and reduce QA / Testing required.
+
+Could we get a new repo created (mhh-vivid360) and add it to the pipeline for [https://github.com/wpcomvip/merck?] Can the Vertex also get write access to the repo? We can then fork the existing codebases for Vivid theme and Vividberg and combine those in a single theme codebase.
+
+If Antonio or Giuseppe have any technical/implementation questions, it's best to have them reach out on our shared Slack channel.",24/Jun/21 12:00 AM,,,GBLDEV-176,,,,,,General Request,Inpsyde,Vertex,,,,,,,,,,,,,,,Major,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,jackje,,,,,,,,,,,,,,New Repo for Vivid360,,,,,jackje,mangiaca,vulina,,,,,Done,,
+,jackje,,,,,,,"Hey Vertex,
+
+I'm sure this is on your radar but dropping in tasks to ensure we plan for the 5.8 release to production on July 20.
+
+https://lobby.vip.wordpress.com/2021/06/15/wordpress-5-8-beta-available-for-testing/
+
+As you know, here's what we've done for major releases in the past. 
+ * Request 5.8 update to lower, non-production environment(s) prior to release. (Maybe aim for the end of June?) 
+ * After a data sync, compare visual appearance of updated environment against production. 
+ * Notify market/site stakeholders of update and give them a deadline to report any issues. Thinking Merckvaccines & corporate communications will definitely want to review. 
+ * Confirm that routine tasks can be completed in dashboard (create page, publish, test all blocks, menus, etc.) 
+ * Cross browser testing. Per the release notes, visual changes shouldn't happen on IE 11, but we should check for the sites that support that browser. 
+ * Post update to production - QA sites to ensure there are no issues. 
+
+Of course, if we encounter any issues on lower environments, we can ask VIP told off on the release for some sites while we bug fix. Hopefully we don't need to hold up that process. 
+
+Thanks!
+
+CC [~mooreem]",,,,FCD-3842,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,Vertex - 5.8 release plan for vivid & corporate sites,,,,,jackje,spekathe,yoch,,,,,,,
+,jackje,,,,,,,"Hey Jeff, 
+
+Can we please get the organon product sites out of the Merck multisite and moved over to Organon? (organon, puregon, pregnyl)
+
+[https://github.com/wpcomvip/merck/tree/master/themes/] 
+
+Thank you so much!
+
+
+Kate
+
+CC [~mooreem] [~yoch]",,,,,Remove organon themes from Merck multisite/repo,To Do,,,,Epic,Vertex,,,,,,,,,,,,,,,,Major,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,"Remove Canada fertility sites from Merck multisite (organon, puregon, pregnyl)",,,,,aakula,spekathe,yoch,,,,,,,
+,vulina,,,,,,,"Hey Inpsyde! I noticed that there is a repo feeding this theme: [https://github.com/wpcomvip/merck/tree/preprod/themes/mhh-merck-merckvaccines2-new-theme].
+
+However, we do not have access to it. My guess is that it probably has the URL of [https://github.com/Inpsyde-Global-Service-Provider/mhh-merck-merckvaccines2-new-theme], but I don't know for sure.
+
+Can our team get access to that repo?
+  ",,,,,,,,,,General Request,inpysde,Vertex,,,,,,,,,,,,,,,Blocker,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,jackje,,,,,,,,,,,,,,Repo Access: merckvaccines2-new-theme,,,,,jackje,vulina,,,,,,Done,,
+,mooreem,,,,,,,"cc [~spekathe] [~jackje]
+
+An Essential Accessibility scan was ran on the Isentress.com home page and a number of High Priority errors were detected. I've attached a spreadsheet of the report. I can get you access to the dashboard if you would like. 
+
+Some of the errors could be unique to Isentress, but we want to make sure that the errors that are coming from the Vivid theme are fixed before more sites use the theme.",,,,GBLDEV-176,,,,,,Story,Vertex,,,,,,,,,,,,,,,,TBD,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,davdarro,,,,,,,,,,,,,,Essential Accessibility Scan Report,,,,,davdarro,,,,,,,,,
+,jackje,,,,,,,"Lower priority since you already have a process in place for regular data syncs. Just wanted to capture this so we have a staging environment available for all the multisites.  Looks like Europe already has it, so we'd just want to add it for merck & merck2. 
+
+Thanks!!!
+
+CC [~mooreem]",,,,GBLDEV-182,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,Vertex - add new yml file for staging environments ,,,,,spekathe,,,,,,,,,
+,mooreem,,,,,,,"The Indication for Gardasil 9 on MV.com requires different functionality than other product pages because it's a Subpart E drug. 
+
+The functionality doc is being finalized. Once it's available it will be posted to this Story.",,,,GBLDEV-176,,,,,,Story,Vertex,,,,GBLDEV-177,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,davdarro,,,,,,,,,,,,,,"MV.com | Gardasil 9 - Indication and ISI",,,,,davdarro,,,,,,,,,
+,jackje,,,,,,,"A new Indication and ISI have been approved by legal. 
+ * Recording of the meeting where we went over the functionality of the ISI/Indication (too large to attach) [https://mydrive.merck.com/:v:/g/personal/granadam_merck_com/EdfnvI8FMbFPktmqp7EGtaABxxirM9NJjJ_Armx7c8j21Q]
+ * I've attached the presentation deck from the meeting.
+
+This will be part of Vivid360 and will be used on MV.com, MerckConnect.com and brand sites.
+
+[~mooreem]",,,,GBLDEV-176,,,,,,Story,Vertex,,,,,GBLDEV-178,,,,,,,,,,,Major,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,davdarro,,,,,,,,,,,,,,New Indication and ISI,,,,,davdarro,,,,,,,,,
+,jackje,,,,,,,"Individual tasks will include updates to existing components, new components, and other items related to Vivid 360.",,,,,Vivid 360 Development,To Do,,,,Epic,demand,Vertex,,,,,,,,,,,,,,,Major,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,davdarro,,,,,,,,,,,,,,Repository for all Vivid 360-related development tasks,,,,,davdarro,,,To get US consumer sites off of Tridion and on WordPress,,,,,,
+,jackje,,,,,,,"The German Corporate Country site ([https://www.msd.de/|https://www.msd.de/]) has several unique functionality requirements outside the standard corporate country site:
+
+* Login to access press articles
+* Pharmacy support form (PII) - [https://www.msd.de/neukunde|https://www.msd.de/neukunde]
+* Product Database
+
+*Additional Details on Product Database*
+MSD Germany resorts to a special presentation of the technical and directions for use (.html and .pdf) and they want to continue using the format.
+ 
+Our suggestion would be to supply the pure records from TYPO3, similar to what we did here: www.msd.de/arzneimittel/include – just without styling, only dataset. We integrated this into the current MSD Connect Website https://www.msdconnect.de/product-finder.xhtml The styling would come from the Wordpress CSS itself, which is advantage to other version we are discussing. Its our preferred approach to this topic.",,,,,Additional Functionality for German Corporate Country Site,To Do,,,,Epic,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,"Login for press articles, pharmacy support form (PII), product database",,,,,vulina,yoch,,,,,,,,
+,jackje,,,,,,,"Provide an estimate on cost and timeline to implement Payor Portal.
+
+cc: [~Linaults][~spekathe][~sharami9]",,,,GBLDEV-103,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Critical,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Estimate Payor Portal Project ,,,,,jackje,sharami9,yoch,,,,,,,
+,,,,,,,,"Develop Payor Portal MVP.
+
+cc: [~Linaults][~spekathe]",,,,,Payor Portal,To Do,,,,Epic,Demand,Vertex,,,,,,,,,,,,,,,Major,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Payor Portal,,,,,yoch,,,,,,,,,
+,jackje,,,,,,,"Wanted to get this into JIRA so that we can track it better. This is a task to create a plan (stories/tasks) to complete the form functionality in Gravity Forms.
+
+cc: [~Linaults][~spekathe][~mooreem]",,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Blocker,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Create stories/tasks for form functionality (US Connector),,,,,yoch,,,,,,,,,
+,,,,,,,,"Discovery to determine costs/timeline to move My Merck Accounts front-end from Tridion to WP VIP.
+
+??I would ask that the exploration occur over the summer months so that as we complete profit planning for 2022, we know how much funding will be needed to support this effort.
+Usually first pass at numbers for PP is due in Sept.??
+
+Architecture of current setup attached. 
+
+cc: [~Linaults][~spekathe]",17/Aug/21 12:00 AM,,,GBLDEV-78,,,,,,Story,Demand,Vertex,,,,,,,,,,,,,,,Major,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Conduct discovery to determine costs/timeline,,,,,yoch,,,,,,,,,
+,,,,,,,,"The front-end for My Merck Accounts is currently hosted in Tridion. We need to migrate it to WP VIP.
+
+Ask is to determine timeline/costs for 2022.
+
+My Merck accounts is powered by several different internal systems and feeds into several different external sites.
+
+* merckvaccines.com (ordering.merckvaccines.com)
+* merckorders.com
+* Admin site
+
+cc: [~Linaults][~spekathe]",,,,,My Merck Accounts,To Do,,,,Epic,Demand,Vertex,,,,,,,,,,,,,,,Major,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Migrate My Merck Accounts front-end from Tridion to WP VIP,,,,,yoch,,,,,,,,,
+,,,,,,,,"We need to prevent the large content shift happening when OneTrust finally loads. 
+
+[https://speedcurve.com/merck/misc/vitals-syn/?cs=lg&d=365&de=1&ds=1&label=Home&s=269308&share=rlc8d7z0i2zboa9emkoh38r0n6yxd3|https://speedcurve.com/merck/misc/vitals-syn/?cs=lg&d=365&de=1&ds=1&label=Home&s=269308&share=rlc8d7z0i2zboa9emkoh38r0n6yxd3]
+
+ !image-2021-05-12-14-51-54-953.png|thumbnail! 
+ !image-2021-05-12-14-49-49-022.png|thumbnail! ",,,,,,,,,,Epic,Demand,Vertex,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Prevent large content shift when OneTrust finally loads,,,,,yoch,,,,,,,,,
+,jackje,,,,,,,"We need to ensure that the OneTrust scripts load before any Tealium/GTM container loads.
+
+We may need to coordinate with Inpsyde on the Data Analytics plugin and where that plugin loads the tracking containers.
+
+Email summary from previous conversations:
+
+The way that GTM and Tealium do that is via JavaScript rather than using the WP enqueuing system. See https://github.com/wpcomvip/merck/blob/master/themes/isentress2/template-parts/tracking.php#L23, which essentially tells the browser, ""Find the first script in the DOM and add us before that."" It's actually incredibly un-performant because the browser then has to literally stop everything else it's doing and parse that JS before continuing to load the page, but the tracking/analytics world doesn't seem to care.
+ 
+That being said, the GTM and Tealium scripts don't actually become ""first"" until the original snippet I linked to is parsed by the browser. That means any scripts that are positioned higher in the source code will execute first. If you look at the source code on https://www.isentress.com/, you'll see that the Tealium loading snippet is actually second-to-last and, if you look at the waterfall in the DevTools Network tab, it loads after OT and the site scripts.
+ 
+Now, for sites that add the GTM/Tealium loading snippet in the <head> element, that might load before OT depending on where it's located in the header template in relation to the ""wp_head()"" function. The ""wp_head()"" function is where all of the enqueued stylesheets and scripts will output. So if the GTM/Tealium loading snippet is above the ""wp_head()"" function in the template then you'll never get OT to load first unless you use a similar loading snippet and place it above the GTM/Tealium one.
+ 
+Also, I think CSS always takes precedence ahead of JS in the ""wp_head()"" output. Even if you escalate OT's order to first for scripts, the stylesheets will always output and load first.
+
+cc: [~spekathe][~Linaults][~waltemik]",17/Aug/21 12:00 AM,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Minor,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Increase priority of OneTrust loading to ensure it loads before Tealium/GTM,,,,,waltemik,yoch,,,,,,,,
+,jackje,,,,,,,"Hey Jeff!
+
+We need to supply Organon with a dump of all our themes/plugins that you have developed before the companies split on June 2. 
+
+Can you package/zip everything up so that we can share it with Jim Liebenow (james.liebenow@organon.com). 
+
+cc: [~Linaults] [~spekathe]
+
+",30/May/21 12:00 AM,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Major,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Supply Merck/MSD custom themes/plugins to Organon,,,,,yoch,,,,,,,Done,,
+,jackje,,,,,,,"We've been asked to connect with you to get a list of key milestones for each site Vivid migration, and rough timing based on size/complexity of site.
+  
+ Could you please come up with a proposed list of milestones for those sites? And if possible, can you provide that to us by the end of this week (May 14)? 
+  
+ We can caveat it stating that it may change once vivid 360 work is complete.
+  
+ + [~sharami9] for visibility. 
+
+Thanks!
+  ",14/May/21 12:00 AM,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Major,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,spekathe,,,,,,,,,,,,,,Provide milestones for Vivid site migrations,,,,,jackje,sharami9,spekathe,,,,,,,
+,jackje,,,,,,,"Hey Jeff,
+
+We need to adjust the deeplink functionality in the m-connect pilot plugin to not force pre-reg users to complete their registration (they should be able to view a deeplink first).
+
+Details from our email discussion:
+
+So I believe we would just use the endpoints that Jan provides to validate an imtoken and then we would update the logic in https://github.com/wpcomvip/merck2/blob/develop/plugins/mconnect-janrain-authentication/processor.php#L195,L223 to handle the validation ourselves rather than relying on the DIH widget.
+ 
+I think this functionality is handled by our pilot plugin so no need to interact with their theme. Rather than sending to the login page, we would detect imtoken URL query var, validate against the endpoint, and then show user page or redirect to login depending on result. This should circumvent the issues with the DIH widget's flow and should also prevent Janrain Local Storage session from being created so that if the user goes anywhere else then they'll need to log in.
+ 
+Dev/Staging
+https://dmc-api-test.mrk-mdlwr.com/deeplink/profile?imtoken=MS7F7zzln4gxxHtq54h9NKxR4G1mkmrU05XYzZyP0fPfhalXbdzDuV2XNp8TXu8PsgGqZYXSeoYlbAO8qW1BRecVDsJmZO9ru3Yo2OMcmBcBB
+Prod
+https://dmc-api-prod.mrk-mdlwr.com/deeplink/profile?imtoken=MS7F7zzln4gxxHtq54h9NKxR4G1mkmrU05XYzZyP0fPfhalXbdzDuV2XNp8TXu8PsgGqZYXSeoYlbAO8qW1BRecVDsJmZO9ru3Yo2OMcmBcBB
+ ",19/May/21 12:00 AM,,,,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Major,GBLDEV,Global Development,software,cisses,High level tracking of Web development's 3rd party vendors' body of work ,,,yoch,,,,,,,,,,,,,,Adjust Pilot Plugin deeplink functionality to not force completion of registration,,,,,yoch,,,,,,,,,
+,,,Vertex,VIVID360,,,,,,,,,WP - VIVID360 - Backlog,To Do,,,,Epic,Vertex,,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,,,,,,,WP - VIVID360 - Backlog,,,,,mooreem,,,,,,,,,
+,,,Vertex,VIVID360,,,,"<p>page is dimming with white overlay behind dropdowns.<br>
+will need the option for MV (and to blur)&nbsp;but for HCC sites no change should happen to the page while opening a dropdown</p>
+",,,,,,,,,,Sub-task,Vertex,Vivid,,,,,FCD-4359,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,klimkosa,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,Desktop dropdown dimming - remove,,,,,klimkosa,mooreem,,,,,,Duplicate,,
+,vernikm,,Vertex,VIVID360,,,,,,,,,,,,,,Sub-task,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,Selected Radio Button and Checkbox Icons,,,,,mooreem,,,,,,,Done,,
+,vernikm,,Vertex,VIVID360,,,,,,,,,,,,,,Sub-task,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,Rename Twitter icon,,,,,mooreem,,,,,,,Done,,
+,vernikm,,Vertex,VIVID360,,,,,,,,,,,,,,Sub-task,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,Remove icon text in dropdown,,,,,mooreem,vernikm,,,,,,Done,,
+,,,Theme,Vertex,,,,WP - VIVID360 - Iconography Updates,,,,FCD-4178,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,WP - VIVID360 - Iconography Updates,31/Dec/21 12:00 AM,01/Dec/21 12:00 AM,,,mooreem,,,,,,,Done,,
+,vernikm,,Vertex,VIVID360,,,,"<p>&nbsp;</p>
+
+<p><span style=""color:#283c46"">&nbsp;| Subnav items are bold when they should be regular weight (like the ones nested under sprint names)&nbsp;</span></p>
+",,,,,,,,,,Sub-task,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,mobile subnav items bolded,,,,,mooreem,,,,,,,Done,,
+,vernikm,,Vertex,VIVID360,,,,,,,,,,,,,,Sub-task,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,clicking a menu item loads another menu before going to page,,,,,mooreem,,,,,,,Done,,
+,vernikm,,Vertex,VIVID360,,,,"<p>&nbsp;</p>
+
+<p><span style=""color:#283c46"">&nbsp;| Subnav items are bold when they should be regular weight (like the ones nested under sprint names)&nbsp;</span></p>
+",,,,,,,,,,Sub-task,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,mobile utility bar not sticky,,,,,mooreem,vernikm,,,,,,Done,,
+,vernikm,,Vertex,VIVID360,,,,"<p>&nbsp;</p>
+
+<p><span style=""color:#283c46"">&nbsp;| blue line under header when hamburger menu is open</span></p>
+",,,,,,,,,,Sub-task,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,mobile blue bar,,,,,mooreem,,,,,,,Done,,
+,vernikm,,Vertex,VIVID360,,,,"<p><span style=""color:#283c46"">The text reading&nbsp;&lt; Main Menu &nbsp;is too large on mobile. Should be 16px.</span></p>
+",,,,,,,,,,Sub-task,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,mobile menu text size,,,,,mooreem,,,,,,,Done,,
+,vernikm,,Vertex,VIVID360,,,,"<p><span style=""color:#283c46"">height of green bar jumps to larger size on click</span></p>
+",,,,,,,,,,Sub-task,vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,Mobile utility bar sizing,,,,,mooreem,vernikm,,,,,,Done,,
+,,,Theme,Vertex,,,,WP - VIVID360 - Branded Header Updates,,,,FCD-4178,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,WP - VIVID360 - Branded Header Updates,31/Dec/21 12:00 AM,01/Dec/21 12:00 AM,,,mooreem,,,,,,,Done,,
+,vernikm,,Vertex,VIVID360,,,,,,,,,,,,,,Sub-task,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,,,,,width of components within Columns,,,,,mooreem,vernikm,,,,,,Done,,
+,,,Theme,Vertex,VIVID360,,,,,,,FCD-3939,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,,,,,Content Width Updates,,,,,mooreem,,,,,,,Done,,
+,,,Theme,Vertex,,,,Card Updates,,,,FCD-4178,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,WP - VIVID360 - Card Updates,31/Dec/21 12:00 AM,01/Dec/21 12:00 AM,,,mooreem,,,,,,,,,
+,,,Theme,Vertex,,,,Hero Module Updates,,,,FCD-4135,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,WP - VIVID360 - Hero Module Updates,31/Dec/21 12:00 AM,01/Dec/21 12:00 AM,,,mooreem,,,,,,,,,
+,mooreem,,Theme,Vertex,VIVID360,,,"<p><b>Designs:&nbsp;</b><a href=""https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/cktkecerj034i0142f1ca4nk7/play"">https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/cktkecerj034i0142f1ca4nk7/play</a>&nbsp;</p>
+
+<p><b>Related Requirements:&nbsp;</b><br>
+Typography:&nbsp;<a href=""https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckted981y0auv016e658jfz8o/play"">https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckted981y0auv016e658jfz8o/play</a>&nbsp;</p>
+
+<p>Grid/Spacing:&nbsp;<a href=""https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckph396gt01pi011wckri4rhk/play"">https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckph396gt01pi011wckri4rhk/play</a>&nbsp;</p>
+
+<p><b>User story:</b> (To be added by Michelle/Design Team)</p>
+",,,PROD,FCD-3928,,,,,,Story,Vertex,Vivid,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,221-1,CE DMC Omni 221-2 Sprint,,,,,WP - VIVID360 - Fork and update Table block,,,,,mooreem,,,,,,,,,
+,granadam,,Theme,Vertex,VIVID360,,,"<p style=""margin-bottom:11px""><span style=""font-size:11pt""><span><span style=""font-family:Calibri,sans-serif"">Designs: <a href=""https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckuzzrt4m024u01z0cuud4jgm/play"" style=""color:#0563c1; text-decoration:underline"">https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckuzzrt4m024u01z0cuud4jgm/play</a></span></span></span></p>
+
+<p style=""margin-bottom:11px""><span style=""font-size:11pt""><span><span style=""font-family:Calibri,sans-serif"">Related requirements: </span></span></span></p>
+
+<p style=""margin-bottom:11px""><span style=""font-size:11pt""><span><span style=""font-family:Calibri,sans-serif"">Typography: <a href=""https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckted981y0auv016e658jfz8o/play"" style=""color:#0563c1; text-decoration:underline"">https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckted981y0auv016e658jfz8o/play</a></span></span></span></p>
+
+<p style=""margin-bottom:11px""><span style=""font-size:11pt""><span><span style=""font-family:Calibri,sans-serif"">Iconography: <a href=""https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckph363h402sp010f3aqzf39p/play"">https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckph363h402sp010f3aqzf39p/play</a></span></span></span></p>
+
+<p style=""margin-bottom:11px""><span style=""font-size:11pt""><span><span style=""font-family:Calibri,sans-serif""><a href=""https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckrcisx3l004w01zpbrsybcc5/play"" style=""color:#0563c1; text-decoration:underline"">https://merck.invisionapp.com/console/VIVID360-UI-Kit-Documentation-ckph2w4a502l4012597b9gj4a/ckrcisx3l004w01zpbrsybcc5/play</a></span></span></span></p>
+",,,,FCD-3928,,,,,,Story,Vertex,,,,,,,,,,,,,,,,Low,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,mooreem,,,,,,,,214-6,214-7,221-1,CE DMC Omni 221-2 Sprint,,,WP - VIVID360 - Quote Block (Enhancements),,,,,mooreem,,,,,,,,,
+,vulina,,,,,,,"Creating an Epic to track the form work.
+
+Adding some background from email:
+
+Initial Functionality:
+ 
+* Contact Forms
+* RMI Forms
+* Coupons
+
+The general plan on the wp side is that Inpsyde would build the Global API Connector and that Vertex will work on the USA API Connector:
+
+ !image-2021-05-14-10-43-47-778.png|thumbnail! 
+
+And Jeff provided a good summary of the next steps:
+ 
+h3. Next Steps
+ 
+h4. Global API Connector
+ 
+* Determine which agency will build (Inpsyde).
+* Get current API documentation, if available.
+* Discuss any API updates needed, if any, to allow for more flexible use globally and parallel development.
+* Begin development.
+ 
+h4. SMTP Integration
+ 
+* Inpsyde will finish gathering requirements.
+* Begin development.
+
+h4. General Forms
+ 
+* Inpsyde will finish gathering requirements. 
+* Begin development.
+ 
+h4. RMI Forms
+ 
+* Vertex will need to meet with the API team to discuss requested API endpoints and Dev/UAT environments/data for use in development. 
+* Vertex will need to meet with team working on Global API Connector to discuss an agreed upon structure of Global API Connector so that parallel development can take place.
+* Begin development.
+ 
+h4. Coupons
+ 
+* Vertex will gather requirements. 
+* Vertex will need to meet with the API team to discuss API endpoints and Dev/UAT environments/data for use in development.
+* If needed, Vertex will meet with team working on Global API Connector to discuss any changes needed for Global API Connector.
+* Begin development.
+
+----
+
+Service endpoint : [https://www.omniapi-dev.com/omni/v1/email/send|https://www.omniapi-dev.com/omni/v1/email/send]
+Documentation : [https://omniapi-demo.s3.us-east-2.amazonaws.com/capabiity_doc/email.html|https://omniapi-demo.s3.us-east-2.amazonaws.com/capabiity_doc/email.html]
+
+----
+
+Thank you very much Santosh Kumar,
+ 
+The current version of the email service is able to send general form. I believe this was conveyed earlier.
+ 
+Yes, that was clear. But for the ""General Form"" use case, I see there're some issues with the current implementation of the service. I'll list them below.
+ 
+ 
+We are in the process of enhancing the email service to pick up the template provide as HTTP URL with .vm file extenstion. We are currently in the testing phase of this enhancement.
+ 
+The email template mentioned is the Apache foundation velocity templates. Attached a sample .vm template file for your reference. This is chosen because it's widely used email templates. You can refer the documentation form Apache from here.
+ 
+As I said, I had already guessed it was Apache Velocity but wanted to point out that it was not evident in the documentation. The .vm file extension is used for many file formats, and let me say that, outside the Java community, Velocity is not that commonly used/known.
+ 
+Anyway, I see several issues:
+ 
+1. We can't execute Java on VIP, and we don't have Java in our local development setup, so compiling Apache Velocity templates (for example, for tests) will be very cumbersome. There's no reliable implementation of that engine for PHP, which means that we can't test our templates. If you would have chosen a template engine like mustache, the solution had been language-agnostic, something I think is valuable for a service designed for the only purpose of cross-system integration.
+ 
+2. The service only supports the email body to be built via templates, but you say that providing a template via URL is under development. So there's no ""production-ready"" way to consume the service at the moment.
+ 
+3. Sending emails with arbitrary content will be impossible. Each and every email will need a template. That is not flexible enough for the WordPress integration. In WordPress, editors will create forms with arbitrary inputs, so we have no idea how the content of the email sent from those forms will look like. And that means we can't create a template upfront for those emails.
+I think it would be much better if the service took a ""body"" request parameter accepting the already compiled email body. If that will not be possible, I'm afraid that we are going to use a single template for all emails, literally only containing:
+${emailBody}
+and then we will send the email body in the emailBody request parameter. Hopefully, the service will accept HTML content in the additional request parameters. But to be honest, creating a template file containing just that single word and passing its URL as a request parameter to service looks very overkill to me, but that's our only option in the lack of more flexible alternatives.
+ 
+ 
+ The following statement is already added in the documentation
+ 
+You are correct. Sorry, I missed that paragraph.
+ 
+ 
+We need more details about the 'Global connector' you have mentioned. 
+ 
+The ""Global API Connector"" was mentioned in the first message of this email thread (sent by Stephen).
+But I think you don't have to worry too much about it: it's about how we are going to structure the integration on the WordPress side. From your perspective, you'll see incoming requests from WordPress.
+ 
+ 
+The RMI service endpoint and documentation will be provided by tomorrow.
+
+
+cc: [~Linaults][~spekathe][~jackje][~pajor][~vulina][~mooreem][~sharami9][~papasani]
+ ",,,,,WP - Universal Theme Updates (Split Part 2),To Do,,,,Epic,Inpsyde,Vertex,,,,GBLDEV-449,,,,,,,,,,,Critical,FCD,WTI - Factory,software,aakula,Intended to develop capabilities for ePublish platform.,,,yoch,,,,,,,,,,,,,,Develop form functionality (Gravity Forms),,,,,,,,,,,,,,
